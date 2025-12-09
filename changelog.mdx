@@ -1,0 +1,150 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and fixes in ksm Documentation.
+---
+
+## Overview
+
+Stay current with ksm Documentation's evolution. You access all release notes here, organized by version. Review new features, bug fixes, and improvements to enhance your documentation workflows.
+
+<Update label="2024-11-05" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added `<Tabs>` and `<CodeGroup>` components for multi-platform examples
+- Introduced `<Request>` and `<Response>` for API documentation previews
+
+## Improvements
+
+- Enhanced MDX parsing to support nested code blocks with 4 backticks
+- Optimized rendering performance by `>30%` for large documentation sites
+
+## Bug Fixes
+
+- Fixed special character escaping for `{`, `}`, `<`, `>` in prose
+- Resolved heading hierarchy validation to prevent H1 usage errors
+
+</Update>
+
+<Update label="2024-10-15" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated `<Update>` component for dynamic changelogs
+- Added `<ParamField>` and `<ResponseField>` for API reference pages
+
+## Bug Fixes
+
+- Corrected Mermaid diagram rendering (code block only, no JSX component)
+- Patched attribute quoting to enforce double quotes in all JSX elements
+
+## Improvements
+
+- Updated Lucide icon library integration with 200+ icons
+
+</Update>
+
+<Update label="2024-09-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Initial Release
+
+- Core MDX components: `<Callout>`, `<Card>`, `<Steps>`, `<Columns>`
+- Full YAML frontmatter support with strict no-blank-line validation
+- Component syntax validation for parsing error prevention
+
+## Breaking Changes
+
+- Removed legacy `<Mermaid>` JSX component; use code blocks exclusively
+
+</Update>
+
+## Upcoming Roadmap
+
+Discover planned enhancements that shape ksm Documentation's future. Prioritize features based on community feedback.
+
+<Columns cols={3}>
+
+<Card title="AI-Powered Docs" icon="bot" href="/docs/ai-features">
+
+Generate content and diagrams automatically.
+
+</Card>
+
+<Card title="Real-Time Collaboration" icon="users" href="/docs/collaboration">
+
+Edit documentation with your team live.
+
+</Card>
+
+<Card title="Advanced Search" icon="search" href="/docs/search">
+
+Full-text search across all pages.
+
+</Card>
+
+</Columns>
+
+<Callout kind="info">
+
+Subscribe to our RSS feed or GitHub releases for instant notifications on new versions. Full commit history available at [GitHub](https://github.com/ksm/docs).
+
+</Callout>
+
+## Integrate Changelog Programmatically
+
+Fetch the latest updates in your application using our API.
+
+<CodeGroup tabs="JavaScript,Python">
+
+```javascript
+const response = await fetch('https://api.ksm.dev/changelog');
+const updates = await response.json();
+updates.forEach(update => console.log(`${update.version}: ${update.summary}`));
+```
+
+```python
+import requests
+
+response = requests.get('https://api.ksm.dev/changelog')
+updates = response.json()
+for update in updates:
+    print(f"{update['version']}: {update['summary']}")
+```
+
+</CodeGroup>
+
+## Stay Updated
+
+Follow these steps to keep your ksm Documentation site current.
+
+<Steps>
+
+<Step title="Check Releases" icon="package">
+
+Visit the changelog weekly or set up webhooks.
+
+</Step>
+
+<Step title="Update Package" icon="download">
+
+Run the update command:
+
+````bash
+npm update ksm-docs
+````
+
+</Step>
+
+<Step title="Review Changes" icon="book-open">
+
+Scan `<Update>` tags for breaking changes before deploying.
+
+</Step>
+
+<Step title="Test Site" icon="play-circle">
+
+Validate MDX parsing: no raw `{` or `<` in prose.
+
+</Step>
+
+</Steps>

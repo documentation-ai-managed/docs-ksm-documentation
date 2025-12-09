@@ -1,0 +1,139 @@
+---
+title: Configuring Your ksm Space
+description: Learn how to customize your documentation space to match your project's branding and workflow needs.
+---
+
+## Overview
+
+Customize your ksm documentation space to align with your project's identity and team structure. Adjust theme settings, manage user access, integrate assets like logos and fonts, and set up backups for reliability. These configurations ensure your docs reflect your brand while maintaining security and ease of maintenance.
+
+<Columns cols={3}>
+  <Card title="Theme Settings" icon="palette" href="#theme-settings">
+    Set colors and styles.
+  </Card>
+  <Card title="Permissions" icon="shield" href="#permissions">
+    Control user access.
+  </Card>
+  <Card title="Custom Assets" icon="image" href="#assets">
+    Add logos and files.
+  </Card>
+</Columns>
+
+## Theme and Brand Color Settings
+
+Tailor the visual appearance starting with your brand color, such as `#3B82F6` for ksm. Update the theme in your space settings.
+
+<Steps>
+  <Step title="Access Settings" icon="settings">
+    Navigate to **Space Settings** > **Theme**.
+  </Step>
+  <Step title="Set Brand Color" icon="palette">
+    Enter your hex code in the **Brand Color** field.
+  </Step>
+  <Step title="Preview and Save" icon="eye">
+    Preview changes and click **Save**.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JSON,YAML">
+```json
+{
+  "theme": {
+    "brandColor": "#3B82F6",
+    "primaryFont": "Inter",
+    "darkMode": true
+  }
+}
+```
+```yaml
+theme:
+  brandColor: "#3B82F6"
+  primaryFont: Inter
+  darkMode: true
+```
+</CodeGroup>
+
+## User Permissions and Access Control
+
+Define roles to secure your content. Assign permissions at the space or page level.
+
+<Tabs>
+  <Tab title="Admin" icon="shield">
+    Full control: edit, delete, manage users.
+
+    | Permission | Allowed |
+    |------------|---------|
+    | Edit Pages | Yes    |
+    | Delete     | Yes    |
+    | Manage Users | Yes  |
+  </Tab>
+  <Tab title="Editor" icon="edit-3">
+    Content management without user control.
+
+    | Permission | Allowed |
+    |------------|---------|
+    | Edit Pages | Yes    |
+    | Delete     | No     |
+    | Manage Users | No   |
+  </Tab>
+  <Tab title="Viewer" icon="eye">
+    Read-only access.
+
+    | Permission | Allowed |
+    |------------|---------|
+    | Edit Pages | No     |
+    | Delete     | No     |
+    | Manage Users | No   |
+  </Tab>
+</Tabs>
+
+<Callout kind="alert">
+  Revoke access immediately for former team members to prevent unauthorized changes.
+</Callout>
+
+## Integrating Custom Assets
+
+Upload logos, icons, and custom CSS to enhance branding.
+
+<Steps>
+  <Step title="Upload Assets" icon="upload">
+    Go to **Assets** > **Upload** and select your files (PNG, SVG, CSS up to 5MB).
+  </Step>
+  <Step title="Reference in MDX" icon="code">
+    Use relative paths in your docs.
+  </Step>
+  <Step title="Apply CSS" icon="brush">
+    Link custom stylesheets in theme settings.
+  </Step>
+</Steps>
+
+```css
+:root {
+  --brand-color: #3B82F6;
+}
+
+.navbar {
+  background: var(--brand-color);
+}
+```
+
+## Backup and Maintenance Options
+
+Schedule automated backups and monitor your space.
+
+<ExpandableGroup>
+  <Expandable title="Enable Backups" default-open="true">
+    In **Settings** > **Backups**, toggle **Daily Backups**. Exports include MDX files and assets as ZIP.
+
+    Set retention to 30 days for compliance.
+  </Expandable>
+  <Expandable title="Maintenance Mode">
+    Activate during updates: **Settings** > **Maintenance** > **Enable**. Visitors see a custom message.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+  Test restores monthly to verify backup integrity.
+</Callout>
+
+These steps keep your ksm space professional, secure, and tailored to your needs. Regularly review settings as your project evolves.

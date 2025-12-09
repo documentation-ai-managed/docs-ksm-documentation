@@ -1,0 +1,120 @@
+---
+title: Troubleshooting Common Issues
+description: Guidance on resolving frequent problems encountered while using ksm Documentation.
+---
+
+## Login and Access Errors
+
+Encounter login failures or permission denied messages? Follow these steps to resolve common authentication issues.
+
+<Steps>
+  <Step title="Clear Browser Cache" icon="trash-2">
+    Open your browser developer tools and clear cache, cookies, and local storage for the ksm domain.
+  </Step>
+  <Step title="Verify Account Status" icon="check-circle">
+    Check your email for account suspension notices. Log in via incognito mode to rule out extension conflicts.
+  </Step>
+  <Step title="Reset Password" icon="key">
+    Use the forgot password link on the login page. Ensure your email provider allows ksm emails.
+  </Step>
+  <Step title="Contact Admin" icon="mail">
+    If issues persist, reach out to your workspace admin with the exact error message.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Enable two-factor authentication (2FA) after resolving login issues to enhance security.
+</Callout>
+
+## Content Synchronization Issues
+
+Sync problems often stem from Git conflicts or API rate limits. Use the following platform-specific fixes.
+
+<Tabs>
+  <Tab title="Git Sync" icon="git-branch">
+    Ensure your repository is up to date.
+
+    <CodeGroup tabs="Bash,CLI">
+      ```bash
+      git pull origin main
+      git add .
+      git commit -m "Update docs"
+      git push origin main
+      ```
+      ```bash
+      ksm sync --repo my-docs --branch main --force
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="API Sync" icon="cloud">
+    Check your API key permissions.
+
+    ```javascript
+    // Verify sync endpoint
+    const response = await fetch('https://api.ksm-docs.com/v1/sync', {
+      headers: { 'Authorization': `Bearer ${KSYNC_TOKEN}` }
+    });
+    console.log(await response.json());
+    ```
+  </Tab>
+</Tabs>
+
+| Error Code | Description | Fix |
+|------------|-------------|-----|
+| SYNC-401 | Unauthorized | Regenerate API key |
+| SYNC-429 | Rate limited | Wait 60 seconds or upgrade plan |
+| SYNC-500 | Server error | Retry or check status.ksm-docs.com |
+
+## Performance Optimization Tips
+
+Slow page loads? Optimize your documentation setup for better speeds.
+
+<Columns cols={2}>
+  <Card title="Enable Caching" icon="hard-drive" href="#">
+    Configure CDN caching headers for static assets.
+  </Card>
+  <Card title="Reduce Image Sizes" icon="image" href="#">
+    Compress images to `<100KB` using tools like TinyPNG.
+  </Card>
+  <Card title="Minify Assets" icon="code" href="#">
+    Run build with minification flags.
+  </Card>
+  <Card title="Lazy Load Components" icon="loader" href="#">
+    Use dynamic imports for heavy MDX components.
+  </Card>
+</Columns>
+
+<Expandable title="Advanced Caching Config" default-open="false">
+
+Edit your `ksm.config.js`:
+
+````javascript
+module.exports = {
+  cache: {
+    ttl: 3600, // 1 hour
+    headers: ['Cache-Control: public, max-age=3600']
+  },
+  performance: {
+    lazyLoad: true,
+    imageOptimization: 'webp'
+  }
+};
+````
+
+</Expandable>
+
+## Contacting Support
+
+<Callout kind="info">
+  Before contacting support, gather logs from browser console (F12) and your sync command outputs.
+</Callout>
+
+Reach out via these channels:
+
+- **Email:** support@ksm-docs.com (include workspace ID)
+- **Discord:** Join #support channel
+- **Status Page:** [status.ksm-docs.com](https://status.ksm-docs.com)
+
+<Callout kind="success">
+  Most issues resolve within 24 hours. Reference this troubleshooting guide in your ticket.
+</Callout>

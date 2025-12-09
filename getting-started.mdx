@@ -1,0 +1,121 @@
+---
+title: Getting Started with ksm
+description: Quickly set up your documentation space and start creating content with step-by-step instructions.
+---
+
+## Overview
+
+Set up your ksm documentation space in minutes. Follow these instructions to create an account, build your first space, explore the interface, and upload content. ksm provides an intuitive platform for organizing Markdown and MDX files with powerful preview and collaboration features.
+
+<Callout kind="tip">
+  Use your brand color `#3B82F6` in custom themes for a personalized look.
+</Callout>
+
+## Create an Account and Log In
+
+Begin by signing up for ksm.
+
+<Steps>
+  <Step title="Visit ksm" icon="globe">
+    Open your browser and go to `https://ksm.dev`.
+  </Step>
+  <Step title="Sign Up" icon="user-plus">
+    Click **Sign Up** and enter your email, name, and a strong password. Verify your email via the confirmation link.
+  </Step>
+  <Step title="Log In" icon="log-in">
+    Return to the login page, enter your credentials, and access the dashboard.
+  </Step>
+</Steps>
+
+## Create Your First Documentation Space
+
+Organize your project docs in a dedicated space.
+
+<Steps>
+  <Step title="New Space" icon="plus">
+    From the dashboard, click **New Space**. Name it `My Project Docs` and select a template like "Default MDX".
+  </Step>
+  <Step title="Configure Settings" icon="settings">
+    Set visibility to **Public** or **Private**, add your brand color `#3B82F6`, and save.
+  </Step>
+  <Step title="Publish" icon="globe">
+    Click **Publish** to generate your space URL, such as `https://ksm.dev/my-project-docs`.
+  </Step>
+</Steps>
+
+## Interface Tour
+
+Explore key areas of the ksm interface.
+
+<Columns cols={3}>
+  <Card title="Editor" icon="edit-3" href="#">
+    Write and preview MDX in real-time. Supports components like `<Callout>` and code highlighting.
+  </Card>
+  <Card title="File Tree" icon="git-branch" href="#">
+    Manage pages, folders, and frontmatter. Drag-and-drop for reorganization.
+  </Card>
+  <Card title="Preview" icon="eye" href="#">
+    Live site preview with navigation. Toggle themes and test responsiveness.
+  </Card>
+</Columns>
+
+## Upload Initial Content
+
+Add your first pages using these methods.
+
+<Tabs>
+  <Tab title="Web Editor" icon="edit">
+    Create `getting-started.mdx` directly in the editor.
+
+    ```mdx
+    ---
+    title: My First Page
+    description: Welcome to my docs.
+    ---
+
+    ## Hello World
+
+    Start writing here.
+    ```
+
+    Save and preview instantly.
+  </Tab>
+  <Tab title="Git Sync" icon="git-pull-request">
+    Connect your GitHub repo.
+
+    <CodeGroup tabs="CLI,Web">
+    ````bash
+    npx ksm-cli init my-docs
+    git remote add origin https://github.com/user/my-docs.git
+    git push -u origin main
+    ````
+
+    ````mdx
+    In ksm dashboard: **Settings > Git Sync > Connect GitHub**.
+    ````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Drag & Drop" icon="upload">
+    Drag Markdown or MDX files into the file tree. ksm auto-generates frontmatter if missing.
+  </Tab>
+</Tabs>
+
+## Best Practices
+
+<ExpandableGroup>
+  <Expandable title="Advanced Navigation Tips" default-open="false">
+    Use keyboard shortcuts: `<kbd>Ctrl</kbd>+<kbd>P</kbd>` for quick search, `<kbd>Ctrl</kbd>+<kbd>S</kbd>` to save.
+    
+    Customize sidebar with tags like `api`, `guide`.
+
+    ```javascript
+    // Example frontmatter tag usage
+    ---
+    title: API Guide
+    tags: ["api", "reference"]
+    ---
+    ```
+  </Expandable>
+</ExpandableGroup>
+
+Your space is now ready. Create more pages and invite collaborators to build comprehensive docs.

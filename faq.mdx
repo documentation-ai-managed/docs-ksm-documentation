@@ -1,0 +1,167 @@
+---
+title: Frequently Asked Questions
+description: Answers to common queries about using and managing documentation in ksm.
+---
+
+## Overview
+
+ksm provides a flexible space to organize your project documentation. You encounter common questions about accounts, features, pricing, and best practices. This page addresses them directly using expandable sections for quick reference.
+
+<Columns cols={2}>
+  <Card title="Account Management" icon="user" href="#account">
+    Manage your profile and security settings.
+  </Card>
+  <Card title="Feature Usage" icon="settings" href="#features">
+    Learn how to use core tools effectively.
+  </Card>
+  <Card title="Pricing Plans" icon="credit-card" href="#pricing">
+    Understand billing and upgrades.
+  </Card>
+  <Card title="Best Practices" icon="book-open" href="#best-practices">
+    Tips for optimal documentation.
+  </Card>
+</Columns>
+
+## Account Management
+
+<ExpandableGroup>
+
+<Expandable title="How do I create a ksm account?" default-open="true">
+
+Follow these steps to sign up:
+
+<Steps>
+  <Step title="Visit Signup" icon="globe">
+    Go to the ksm homepage and click `Sign Up`.
+  </Step>
+  <Step title="Enter Details">
+    Provide your email, password, and workspace name.
+  </Step>
+  <Step title="Verify Email">
+    Check your inbox and click the verification link.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use a strong password with at least 12 characters, including numbers and symbols.
+</Callout>
+
+</Expandable>
+
+<Expandable title="What if I forget my password?">
+
+Navigate to the login page and select `Forgot Password?`. Enter your email to receive a reset link valid for 15 minutes. You reset it securely without contacting support.
+
+</Expandable>
+
+<Expandable title="How do I update my billing information?">
+
+Access `Account Settings > Billing` from the sidebar. Update your card details or switch payment methods instantly. Changes apply to the next billing cycle.
+
+</Expandable>
+
+</ExpandableGroup>
+
+## Feature Usage
+
+<ExpandableGroup>
+
+<Expandable title="How do I create a new documentation page?">
+
+Use the `+ New Page` button in the navigation. Choose a template or start blank. Organize pages with folders for better structure.
+
+<Callout kind="info">
+  Pages support full MDX, including components like `<Callout>` and `<Steps>`.
+</Callout>
+
+</Expandable>
+
+<Expandable title="Can I collaborate with team members?">
+
+Invite users via `Workspace Settings > Members`. Assign roles: Admin, Editor, or Viewer. Real-time editing syncs changes across sessions.
+
+</Expandable>
+
+<Expandable title="How do I preview changes before publishing?">
+
+Toggle the preview mode in the editor toolbar. It renders live MDX, including custom components and code highlighting.
+
+</Expandable>
+
+</ExpandableGroup>
+
+<Tabs>
+  <Tab title="Editor Shortcuts" icon="keyboard">
+    - `Ctrl+S`: Save
+    - `Ctrl+/`: Comment line
+    - `Ctrl+K`: Open commands
+  </Tab>
+  <Tab title="Navigation Tips" icon="menu">
+    Use `/` to search pages quickly.
+    Pin frequent pages to the sidebar.
+  </Tab>
+</Tabs>
+
+## Pricing and Plans
+
+| Plan       | Price      | Pages | Storage | Collaboration |
+|------------|------------|-------|---------|---------------|
+| Free      | $0/mo     | 50    | 1 GB   | 3 users      |
+| Pro       | $19/mo    | 500   | 10 GB  | Unlimited    |
+| Enterprise| Custom    | ∞     | ∞      | SSO + Audit  |
+
+<ExpandableGroup>
+
+<Expandable title="What does the Free plan include?">
+
+You get unlimited public pages, basic components, and 50 private pages. Upgrade for private unlimited storage and advanced features like custom domains.
+
+</Expandable>
+
+<Expandable title="How do I upgrade my plan?">
+
+Go to `Billing > Upgrade`. Select Pro or contact sales for Enterprise. Prorated billing applies immediately.
+
+</Expandable>
+
+</ExpandableGroup>
+
+<Callout kind="success">
+  All plans include priority support and automatic backups.
+</Callout>
+
+## Best Practices
+
+Organize documentation hierarchically: Use frontmatter for metadata, H2 headings for sections, and components for interactivity.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Example: API integration in docs
+  const apiKey = process.env.KSM_API_KEY;
+  fetch('https://api.ksm.dev/docs', {
+    headers: { Authorization: `Bearer ${apiKey}` }
+  });
+  ```
+  ```python
+  # Example: Embed docs in app
+  import requests
+  api_key = os.getenv('KSM_API_KEY')
+  response = requests.get('https://api.ksm.dev/docs', headers={
+      'Authorization': f'Bearer {api_key}'
+  })
+  ```
+</CodeGroup>
+
+<Expandable title="Structuring Large Workspaces" default-open="false">
+
+1. Create a `reference/` folder for APIs.
+2. Use `tutorials/` for guides.
+3. Pin changelog.mdx to the top.
+
+<Callout kind="tip">
+  Limit pages to 2000 words for faster rendering.
+</Callout>
+
+</Expandable>
+
+Follow these practices to maintain clean, scalable documentation in ksm. For more, explore the quickstart guide.

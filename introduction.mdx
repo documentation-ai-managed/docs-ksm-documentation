@@ -1,0 +1,119 @@
+---
+title: Welcome to ksm Documentation
+description: An overview of ksm Documentation, a platform designed for organizing and managing project documentation efficiently.
+---
+
+## What is ksm Documentation
+
+ksm Documentation provides a centralized space to organize, manage, and publish your project's documentation. You create structured pages, embed interactive components, and collaborate with your team in real-time. The platform supports MDX for rich content including code examples, diagrams, and custom components.
+
+<Callout kind="info">
+  ksm Documentation integrates seamlessly with your Git workflow, so you version-control docs alongside your codebase.
+</Callout>
+
+## Key Benefits
+
+ksm Documentation streamlines your documentation process with these core advantages:
+
+<Columns cols={3}>
+  <Card title="Fast Setup" icon="zap" href="/docs/quickstart">
+    Launch your docs site in minutes with pre-built templates and components.
+  </Card>
+  <Card title="Rich Components" icon="components" href="/docs/components">
+    Use interactive elements like tabs, steps, and code groups to engage readers.
+  </Card>
+  <Card title="Team Collaboration" icon="users" href="/docs/collaboration">
+    Edit docs collaboratively with version history and pull requests.
+  </Card>
+</Columns>
+
+## Common Use Cases
+
+Tailor ksm Documentation to your needs across various scenarios.
+
+<Tabs>
+  <Tab title="API Docs" icon="api">
+    Document endpoints with request/response examples and parameter tables.
+    
+    ```javascript
+    const response = await fetch('https://api.ksm.com/v1/users', {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    ```
+  </Tab>
+  <Tab title="SDK Guides" icon="package">
+    Provide installation and usage instructions for your libraries.
+    
+    <Steps>
+      <Step title="Install SDK" icon="download">
+        ```bash
+        npm install @ksm/sdk
+        ```
+      </Step>
+      <Step title="Initialize" icon="settings">
+        ```javascript
+        import { KsmSDK } from '@ksm/sdk';
+        const sdk = new KsmSDK({ apiKey: 'your-key' });
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Product Onboarding" icon="book-open">
+    Create interactive tutorials for new users.
+  </Tab>
+</Tabs>
+
+## Get Oriented
+
+Navigate the platform quickly with these steps:
+
+<Steps>
+  <Step title="Create Your Space" icon="plus">
+    Start a new documentation space from the dashboard.
+  </Step>
+  <Step title="Add Pages" icon="file-text">
+    Use the editor to build pages with MDX syntax.
+  </Step>
+  <Step title="Publish" icon="globe">
+    Deploy changes with one click for instant updates.
+  </Step>
+</Steps>
+
+## Brand Customization
+
+Customize your docs to match your brand, starting with the primary color `#3B82F6`.
+
+<CodeGroup tabs="config.json,env">
+  ```json
+  {
+    "theme": {
+      "primaryColor": "#3B82F6",
+      "logo": "/assets/logo.svg"
+    }
+  }
+  ```
+  ```bash
+  KSM_PRIMARY_COLOR=#3B82F6
+  KSM_LOGO_PATH=/assets/logo.svg
+  ```
+</CodeGroup>
+
+<Expandable title="Advanced Theming" default-open="false">
+  Override CSS variables for deeper customization:
+  
+  ```css
+  :root {
+    --ksm-primary: #3B82F6;
+    --ksm-secondary: #1D4ED8;
+  }
+  ```
+</Expandable>
+
+<Columns cols={2}>
+  <Card title="Next Steps" icon="arrow-right" href="/docs/quickstart">
+    Follow the quickstart guide.
+  </Card>
+  <Card title="Components Reference" icon="code" href="/docs/components">
+    Explore all available components.
+  </Card>
+</Columns>
